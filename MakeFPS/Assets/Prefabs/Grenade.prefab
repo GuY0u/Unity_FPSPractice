@@ -124,3 +124,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fxFactory: {fileID: 100006, guid: d2edf02c53106754ea37eb4be85e2cab, type: 3}
+  Enemy: {fileID: 0}

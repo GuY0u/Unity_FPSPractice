@@ -35,6 +35,12 @@ public class PlayerFire : MonoBehaviour
             {
                 print(hitInfo.transform.name);
 
+                //내총알에 충돓했으니 몬스터 체력을 까끼
+                EnemyFSM1 enemy = hitInfo.collider.GetComponent<EnemyFSM1>();
+                enemy.hitDamage(10);
+                //hitInfo.collider.gameObject.getComponene<EnemyFSM1>().hitDamage(10);
+                //hitInfo.transform.GetComponent<EnemyFSM1>().hitDamage(10);
+
                 ////충돌지점에 총알이펙트 생성한다
                 GameObject bulletImpact = Instantiate(bulletImpactFactory);
                 bulletImpact.transform.position = hitInfo.point;

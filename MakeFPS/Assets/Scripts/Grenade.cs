@@ -14,6 +14,13 @@ public class Grenade : MonoBehaviour
 
     public GameObject fxFactory;
 
+    public EnemyFSM Enemy;
+
+    private void Start()
+    {
+        Enemy = GetComponent<EnemyFSM>();
+    }
+
     private void OnCollisionEnter(Collision coll)
     {
         //폭발이펙트 보여주기
@@ -22,9 +29,13 @@ public class Grenade : MonoBehaviour
         //혹시나 이펙트오브젝트가 사라지지 않는 경우
         //Destroy(fx, 2.0f); //2초후에 폭발이펙트 삭제
 
+        if (coll.transform.gameObject.tag == "Enemy")
+        {
+            Enemy.Damaged();
+        }
+
 
         //다른 오브젝트도 삭제하기
         //자기자신 삭제하기 (맨 마지막에 처리)
     }
-    
 }
